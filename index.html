@@ -151,12 +151,44 @@ body { font-family:system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif; fo
   /* BOTÓN — máx 420px centrado */
   .btn-solicitar { width:auto; max-width:420px; padding:14px 48px; font-size:12px; display:block; margin:0 auto; }
 
-  /* EDITORIAL */
+  /* EDITORIAL — centrado y alineado */
   .editorial { padding:40px 40px 44px; }
-  .editorial-title { font-size:clamp(20px,2.2vw,30px); max-width:600px; margin-left:auto; margin-right:auto; }
-  .editorial-text { max-width:520px; font-size:14px; }
-  .editorial-text-intro { max-width:480px; font-size:13px; }
-  .editorial-grid { max-width:560px; }
+  .editorial-title { font-size:clamp(20px,2.2vw,30px); max-width:600px; margin-left:auto; margin-right:auto; text-align:center; }
+  .editorial-text { max-width:520px; font-size:14px; text-align:center; margin-left:auto; margin-right:auto; }
+  .editorial-text-intro { max-width:480px; font-size:13px; text-align:center; margin-left:auto; margin-right:auto; }
+  .editorial-grid { max-width:560px; margin-left:auto; margin-right:auto; }
+  .editorial-label { text-align:center; display:block; }
+
+  /* ── ALINEACIÓN EDITORIAL COHERENTE ──
+     El fondo de color ocupa todo el ancho (correcto)
+     pero el CONTENIDO interno se limita al mismo ancho que el catálogo */
+
+  /* HERO — contenido interno alineado con catálogo */
+  .hero { padding-left:0; padding-right:0; }
+  .hero-title,
+  .hero-sub,
+  .hero-scroll { max-width:980px; margin-left:auto; margin-right:auto; padding-left:40px; padding-right:40px; }
+
+  /* NUESTRA COLECCIÓN — mismo ancho */
+  #nuestra-coleccion { padding-left:0; padding-right:0; }
+  .col-label,
+  .col-title,
+  .col-rule { max-width:980px; margin-left:auto; margin-right:auto; }
+
+  /* EDITORIAL — contenido interno centrado al ancho del catálogo */
+  .editorial { padding-left:0; padding-right:0; }
+  .editorial-label,
+  .editorial-title,
+  .editorial-rule,
+  .editorial-grid,
+  .editorial-text,
+  .editorial-text-intro { max-width:980px; margin-left:auto; margin-right:auto; padding-left:40px; padding-right:40px; box-sizing:border-box; text-align:center; }
+  .editorial-grid { max-width:560px; padding-left:0; padding-right:0; }
+
+  /* BLOQUE FINAL gris/beige — texto más compacto */
+  .editorial-title { font-size:clamp(17px,1.8vw,24px); }
+  .editorial-text { font-size:13px; max-width:460px; }
+  .editorial-text-intro { font-size:12px; max-width:420px; }
 }
 </style>
 </head>
@@ -1259,13 +1291,13 @@ filter:drop-shadow(0 6px 18px rgba(0,0,0,.06));">
   <div style="width:120px; height:2px; background:linear-gradient(90deg,transparent,#a07840,transparent); margin:0 auto 32px;"></div>
 
   <!-- Firma principal -->
-  <p style="font-family:'Noto Serif', Georgia, serif; font-style:italic; font-weight:600; font-size:2.4rem; color:#1a2810; letter-spacing:0.04em; margin:0 0 10px 0; line-height:1.1;">Flores Skin Lab</p>
+  <p style="font-family:'Noto Serif', Georgia, serif; font-style:italic; font-weight:600; font-size:1.6rem; color:#1a2810; letter-spacing:0.04em; margin:0 0 10px 0; line-height:1.1;">Flores Skin Lab</p>
 
   <!-- Línea fina -->
   <div style="width:40px; height:1px; background:#a07840; margin:0 auto 14px;"></div>
 
   <!-- Tagline -->
-  <p style="font-family:'Noto Serif', Georgia, serif; font-size:18px; letter-spacing:0.2em; color:#3b4e30; text-transform:uppercase; margin:0 0 20px 0; font-weight:600;">Selección Exclusiva &nbsp;·&nbsp; Envío a España</p>
+  <p style="font-family:'Noto Serif', Georgia, serif; font-size:13px; letter-spacing:0.2em; color:#3b4e30; text-transform:uppercase; margin:0 0 20px 0; font-weight:600;">Selección Exclusiva &nbsp;·&nbsp; Envío a España</p>
 
   <!-- Flags -->
   <p style="font-size:1.2rem; margin:0 0 28px 0; letter-spacing:0.15em;">🇪🇸 &nbsp; 🇰🇷</p>
