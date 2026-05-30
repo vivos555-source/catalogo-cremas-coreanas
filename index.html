@@ -27,8 +27,9 @@ body { font-family:system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif; fo
 .col-title { font-family:'Noto Serif',Georgia,serif; font-size:clamp(20px,5vw,32px); font-weight:400; color:#000; line-height:1.3; }
 .col-title em { font-style:italic; }
 .col-rule { width:36px; height:1px; background:var(--gold); margin:12px auto 0; }
-.catalogue { width:92%; margin:0 auto; padding:28px 0 72px; display:flex; flex-direction:column; }
+.catalogue { width:92%; margin:0 auto; padding:28px 0 8px; display:flex; flex-direction:column; }
 .product-card { background:var(--card-bg); border-bottom:1px solid #d8d4ce; margin-bottom:36px; box-shadow:0 2px 14px rgba(0,0,0,0.06); overflow:hidden; }
+.product-card:last-child { margin-bottom:0; }
 .card-gallery-outer { display:flex; flex-direction:row; align-items:center; width:100%; background:#f2efe9; }
 .card-gallery-wrapper { flex:1; min-width:0; overflow:hidden; background:#f2efe9; }
 .card-gallery { display:flex; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; scrollbar-width:none; cursor:grab; width:100%; }
@@ -92,103 +93,65 @@ body { font-family:system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif; fo
 #gallery9 img,#gallery10 img,#gallery11 img,#gallery12 img,#gallery13 img,#gallery14 img,#gallery15 img { object-fit:contain; background:#f7f4ef; }
 #gallery3 img { min-height:280px; }
 
-@media (min-width:768px) { .catalogue { max-width:780px; width:88%; } .hero { min-height:32vh; } .card-body { padding:22px 28px 18px; } .card-footer { padding:14px 28px 22px; } .btn-solicitar { width:82%; } .card-gallery img { max-height:500px; } #nuestra-coleccion { padding:36px 0 20px; } .col-title { font-size:clamp(18px,4.5vw,28px); } }
+/* ── ESPACIADO CORRECTO ── */
+header { background:var(--bg); padding:20px 0 0; }
+header img { display:block; width:260px; max-width:72vw; margin:0 auto; filter:drop-shadow(0 4px 12px rgba(0,0,0,.06)); }
+.hero { width:92%; margin:0 auto; border-radius:8px; min-height:unset; padding:32px 24px 28px; }
+.editorial { width:92%; margin:0 auto; border-radius:8px; padding:32px 24px 36px; }
+footer { width:92% !important; margin:0 auto !important; border-radius:8px !important; padding:28px 24px !important; box-sizing:border-box !important; }
+
+@media (min-width:768px) {
+  .catalogue { max-width:780px; width:88%; }
+  .hero { min-height:28vh; }
+  .card-body { padding:22px 28px 18px; }
+  .card-footer { padding:14px 28px 22px; }
+  .btn-solicitar { width:82%; }
+  .card-gallery img { max-height:500px; }
+  #nuestra-coleccion { padding:32px 0 20px; }
+  .col-title { font-size:clamp(18px,4.5vw,28px); }
+}
+
 @media (min-width:1024px) {
-  /* CATÁLOGO — equilibrado en monitores grandes */
-  .catalogue { max-width:980px; width:76%; }
+  /* CONTENEDOR */
+  .catalogue { max-width:960px; width:76%; }
 
-  /* HERO — visible catálogo en 1366x768 sin scroll */
-  .hero { min-height:22vh; padding:28px 40px 24px; }
-  .hero-title { font-size:clamp(28px,3.5vw,42px); margin-bottom:10px; }
-  .hero-sub { font-size:12px; }
+  /* HEADER + LOGO */
+  header { padding:20px 0 16px; }
+  header img { width:320px !important; max-width:50vw !important; }
 
-  /* LOGO — imagen real, +30% más grande y header más compacto */
-  header { padding:18px 0 14px; }
-  header img { width:340px !important; max-width:60vw !important; }
+  /* HERO */
+  .hero { min-height:20vh; padding:32px 40px 28px; }
+  .hero-title { font-size:clamp(26px,3.2vw,40px); }
 
-  /* COLECCIÓN — llega antes al catálogo */
+  /* COLECCIÓN */
   #nuestra-coleccion { padding:24px 0 16px; }
   .col-title { font-size:clamp(18px,2.5vw,28px); }
-  .col-rule { margin:8px auto 0; }
-
-  /* CABECERAS DE CATEGORÍA — reducidas 30% */
-  .section-label-blue { padding:5px 14px; font-size:10.5px; margin-bottom:8px; }
-  .steps-label-blue { font-size:10px; margin-bottom:8px; }
-  .card-brand { font-size:10.5px; margin-bottom:4px; }
-  .col-label { font-size:10px; margin-bottom:8px; }
 
   /* TARJETAS */
-  .product-card { margin-bottom:44px; }
-  .card-body { padding:28px 36px 20px; }
-  .card-footer { padding:16px 36px 28px; }
-  .card-name { font-size:1.35rem; margin-bottom:6px; }
-  .card-sub { font-size:0.88rem; margin-bottom:10px; }
-  .card-desc { font-size:0.92rem; margin-bottom:16px; line-height:1.75; }
+  .product-card { margin-bottom:40px; }
+  .card-body { padding:26px 34px 20px; }
+  .card-footer { padding:16px 34px 26px; }
+  .card-name { font-size:1.3rem; }
+  .card-desc { font-size:0.92rem; }
 
   /* IMÁGENES */
-  .card-gallery img { max-height:520px; }
+  .card-gallery img { max-height:500px; }
 
-  /* BENEFICIOS */
-  .benefit-item { gap:10px; margin-bottom:10px; }
-  .benefit-title { font-size:13px; }
-  .benefit-text { font-size:12.5px; }
+  /* BOTÓN */
+  .btn-solicitar { max-width:400px; width:auto; padding:14px 40px; }
 
-  /* MODO DE USO */
-  .uso-box { padding:10px 14px; margin-bottom:10px; }
-  .uso-text { font-size:13px; }
-
-  /* LOTE */
-  .lote-box { padding:10px 14px; }
-  .lote-row { font-size:12.5px; }
-
-  /* TAGS */
-  .tag { font-size:0.72rem; font-weight:600; padding:5px 13px; border-color:rgba(59,78,48,0.5); }
-
-  /* PRECIO */
-  .card-price { font-size:2.4rem; }
-  .price-wrap { margin-bottom:14px; }
-
-  /* BOTÓN — máx 420px centrado */
-  .btn-solicitar { width:auto; max-width:420px; padding:14px 48px; font-size:12px; display:block; margin:0 auto; }
-
-  /* EDITORIAL — centrado y alineado */
-  .editorial { padding:40px 40px 44px; }
-  .editorial-title { font-size:clamp(20px,2.2vw,30px); max-width:600px; margin-left:auto; margin-right:auto; text-align:center; }
-  .editorial-text { max-width:520px; font-size:14px; text-align:center; margin-left:auto; margin-right:auto; }
-  .editorial-text-intro { max-width:480px; font-size:13px; text-align:center; margin-left:auto; margin-right:auto; }
-  .editorial-grid { max-width:560px; margin-left:auto; margin-right:auto; }
-  .editorial-label { text-align:center; display:block; }
-
-  /* ── ALINEACIÓN EDITORIAL COHERENTE ──
-     El fondo de color ocupa todo el ancho (correcto)
-     pero el CONTENIDO interno se limita al mismo ancho que el catálogo */
-
-  /* HERO — contenido interno alineado con catálogo */
-  .hero { padding-left:0; padding-right:0; }
-  .hero-title,
-  .hero-sub,
-  .hero-scroll { max-width:980px; margin-left:auto; margin-right:auto; padding-left:40px; padding-right:40px; }
-
-  /* NUESTRA COLECCIÓN — mismo ancho */
-  #nuestra-coleccion { padding-left:0; padding-right:0; }
-  .col-label,
-  .col-title,
-  .col-rule { max-width:980px; margin-left:auto; margin-right:auto; }
-
-  /* EDITORIAL — contenido interno centrado al ancho del catálogo */
-  .editorial { padding-left:0; padding-right:0; }
+  /* EDITORIAL */
+  .editorial { padding:40px 0 44px; }
   .editorial-label,
   .editorial-title,
   .editorial-rule,
   .editorial-grid,
   .editorial-text,
-  .editorial-text-intro { max-width:980px; margin-left:auto; margin-right:auto; padding-left:40px; padding-right:40px; box-sizing:border-box; text-align:center; }
-  .editorial-grid { max-width:560px; padding-left:0; padding-right:0; }
-
-  /* BLOQUE FINAL gris/beige — texto más compacto */
-  .editorial-title { font-size:clamp(17px,1.8vw,24px); }
+  .editorial-text-intro { max-width:960px; width:76%; margin-left:auto; margin-right:auto; box-sizing:border-box; text-align:center; }
+  .editorial-grid { max-width:540px; width:100%; }
+  .editorial-title { font-size:clamp(18px,2vw,26px); }
   .editorial-text { font-size:13px; max-width:460px; }
-  .editorial-text-intro { font-size:12px; max-width:420px; }
+  .editorial-text-intro { font-size:12.5px; max-width:420px; }
 }
 </style>
 </head>
