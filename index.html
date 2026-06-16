@@ -984,10 +984,15 @@ filter:drop-shadow(0 6px 18px rgba(0,0,0,.06));">
   </div>
 </article>
 
-<div style="background:#fdfcf9; border-radius:14px; padding:0 0 6px; margin:16px 0 28px; box-shadow:0 2px 14px rgba(0,0,0,0.07);">
-    <div style="padding:18px 22px 6px;">
-      <span class="section-label-blue">CUIDADO PROFESIONAL</span>
-    </div>
+<div style="background:#ffffff; border-radius:14px; padding:24px 22px 22px; margin:16px 0 0; box-shadow:0 2px 14px rgba(0,0,0,0.07); border:1px solid #e8e5e0;">
+  <span class="section-label-blue">CUIDADO PROFESIONAL</span>
+  <span style="display:block; font-size:13px; font-weight:700; letter-spacing:0.22em; color:#a07840; text-transform:uppercase; margin-bottom:8px; margin-top:14px;">Pack · Rutina Completa</span>
+  <h2 style="font-family:'Noto Serif',Georgia,serif;font-size:2rem;color:#708238;margin:0 0 10px 0;font-style:italic;line-height:1.2;">Rituales Completos</h2>
+  <div style="width:40px;height:2px;background:#a07840;margin-bottom:16px;"></div>
+  <p style="font-size:16px;color:#444;line-height:1.7;margin:0;">Combinaciones seleccionadas de productos coreanos para una rutina completa. Más resultados, mejor precio.</p>
+</div>
+
+<article class="product-card product-card--pack">
     <div style="padding:0;">
       <div class="gallery-outer">
     <button class="gallery-nav-btn" onclick="scrollGallery('gallery9', -1)">‹</button>
@@ -1350,7 +1355,8 @@ filter:drop-shadow(0 6px 18px rgba(0,0,0,.06));">
   // ── Inicializar cada galería ──
   document.querySelectorAll('.gallery').forEach(function(gallery) {
     const card = gallery.closest('.product-card');
-    const dotsContainer = card ? card.querySelector('.gallery-dots') : null;
+    const galleryOuter = gallery.closest('.gallery-outer');
+    const dotsContainer = card ? card.querySelector('.gallery-dots') : (galleryOuter ? galleryOuter.querySelector('.gallery-dots') : null);
 
     // Los puntos están en el HTML — solo aseguramos que el primero esté activo
     if (dotsContainer && dotsContainer.children.length > 0) {
