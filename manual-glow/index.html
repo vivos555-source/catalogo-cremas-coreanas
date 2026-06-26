@@ -1,1 +1,416 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tu rutina personalizada · Flores Skin Lab</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400;500&display=swap');
 
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --green: #3b4e30;
+    --green-light: #4e6640;
+    --gold: #a07840;
+    --gold-soft: #c9a46a;
+    --bg: #f7f4ef;
+    --bg-card: #faf8f4;
+    --text: #2c2c2c;
+    --text-soft: #6b6560;
+    --divider: #e0d9ce;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  .header {
+    background: var(--green);
+    padding: 48px 24px 40px;
+    text-align: center;
+  }
+
+  .header-brand {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold-soft);
+    margin-bottom: 16px;
+  }
+
+  .header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(34px, 9vw, 48px);
+    font-weight: 300;
+    color: #f7f4ef;
+    line-height: 1.2;
+    margin-bottom: 14px;
+  }
+
+  .header-sub {
+    font-size: 16px;
+    color: rgba(247,244,239,0.75);
+    font-weight: 300;
+    max-width: 320px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  /* GOLD LINE DIVIDER */
+  .gold-line {
+    width: 40px;
+    height: 1px;
+    background: var(--gold-soft);
+    margin: 20px auto 0;
+    opacity: 0.6;
+  }
+
+  /* MAIN */
+  main {
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 0 16px 60px;
+  }
+
+  /* RUTINA BLOCK */
+  .rutina-block {
+    margin-top: 40px;
+  }
+
+  .rutina-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 6px;
+  }
+
+  .rutina-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  .icon-dia { background: #e8f0e0; }
+  .icon-noche { background: #2e3b26; }
+
+  .rutina-label {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .rutina-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 300;
+    color: var(--green);
+    line-height: 1.2;
+  }
+
+  .rutina-objetivo {
+    font-size: 15px;
+    color: var(--text-soft);
+    margin: 10px 0 20px;
+    padding-left: 48px;
+    font-style: italic;
+  }
+
+  /* STEP CARDS */
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .step {
+    background: var(--bg-card);
+    border: 1px solid var(--divider);
+    border-radius: 12px;
+    padding: 18px 18px 18px 16px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  .step-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px;
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+    min-width: 28px;
+    text-align: center;
+    padding-top: 2px;
+  }
+
+  .step-content {}
+
+  .step-name {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--green);
+    margin-bottom: 6px;
+    line-height: 1.35;
+  }
+
+  .step-desc {
+    font-size: 15px;
+    color: var(--text-soft);
+    line-height: 1.7;
+  }
+
+  /* LAST STEP — protector solar highlight */
+  .step.highlight {
+    border-color: var(--gold-soft);
+    background: #fdf9f2;
+  }
+
+  .step.highlight .step-name {
+    color: var(--gold);
+  }
+
+  .step-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid var(--gold-soft);
+    border-radius: 20px;
+    padding: 3px 10px;
+    margin-bottom: 8px;
+  }
+
+  /* SECTION DIVIDER */
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 40px 0 0;
+  }
+
+  .section-divider::before,
+  .section-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--divider);
+  }
+
+  .section-divider span {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--divider);
+  }
+
+  /* NOTA */
+  .nota {
+    margin-top: 14px;
+    background: #f0ede8;
+    border-left: 3px solid var(--green);
+    border-radius: 0 8px 8px 0;
+    padding: 16px 18px;
+    font-size: 15px;
+    color: var(--text-soft);
+    line-height: 1.7;
+  }
+
+  .nota strong {
+    display: block;
+    font-weight: 500;
+    color: var(--green);
+    margin-bottom: 4px;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* CONSEJO */
+  .consejo {
+    margin-top: 36px;
+    background: var(--green);
+    border-radius: 14px;
+    padding: 26px 22px;
+    text-align: center;
+  }
+
+  .consejo-icon {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .consejo p {
+    font-size: 16px;
+    color: rgba(247,244,239,0.9);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 28px 24px 40px;
+    border-top: 1px solid var(--divider);
+    margin-top: 20px;
+  }
+
+  .footer-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    color: var(--green);
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+
+  .footer-sub {
+    font-size: 13px;
+    color: var(--text-soft);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <p class="header-brand">Flores Skin Lab</p>
+  <h1>Tu rutina personalizada<br>de cuidado</h1>
+  <p class="header-sub">Una rutina inspirada en la cosmética coreana, creada para acompañar tu piel en cada momento del día.</p>
+  <div class="gold-line"></div>
+</header>
+
+<main>
+
+  <!-- MAÑANA -->
+  <section class="rutina-block">
+    <div class="rutina-header">
+      <div class="rutina-icon icon-dia">🌿</div>
+      <div>
+        <p class="rutina-label">Rutina de día</p>
+        <h2 class="rutina-title">Mañana</h2>
+      </div>
+    </div>
+    <p class="rutina-objetivo">Hidratar, aportar luminosidad y proteger la piel durante el día.</p>
+
+    <div class="steps">
+
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <p class="step-name">Mary &amp; May Vegan Toner</p>
+          <p class="step-desc">Aplica sobre la piel limpia para prepararla e hidratarla. Espera unos segundos hasta que se absorba por completo.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <p class="step-name">Tone Brightening Capsule Ampoule</p>
+          <p class="step-desc">Aplica unas gotas de la ampolla sobre el rostro y extiende suavemente hasta que la piel la absorba.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <p class="step-name">Poremizing Light Gel Cream</p>
+          <p class="step-desc">Aplica como paso hidratante para mantener la piel confortable y equilibrada a lo largo del día.</p>
+        </div>
+      </div>
+
+      <div class="step highlight">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <span class="step-badge">Protección solar</span>
+          <p class="step-name">Madagascar Centella Hyalu-Cica Water-Fit Sun Serum</p>
+          <p class="step-desc">Finaliza la rutina con este último paso. Aplica una cantidad generosa antes de la exposición solar. Es el cierre esencial de la mañana.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- DIVIDER -->
+  <div class="section-divider"><span>·</span></div>
+
+  <!-- NOCHE -->
+  <section class="rutina-block">
+    <div class="rutina-header">
+      <div class="rutina-icon icon-noche">🌙</div>
+      <div>
+        <p class="rutina-label">Rutina de noche</p>
+        <h2 class="rutina-title">Noche</h2>
+      </div>
+    </div>
+    <p class="rutina-objetivo">Hidratar y acompañar el cuidado de la piel durante el descanso.</p>
+
+    <div class="steps">
+
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <p class="step-name">Mary &amp; May Vegan Toner</p>
+          <p class="step-desc">Aplica sobre la piel limpia para iniciar la rutina nocturna con la piel preparada e hidratada.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <p class="step-name">Tone Brightening Capsule Ampoule</p>
+          <p class="step-desc">Aplica unas gotas y masajea suavemente hasta que se absorba. La noche es el momento ideal para que la ampolla actúe.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <p class="step-name">Poremizing Light Gel Cream</p>
+          <p class="step-desc">Finaliza la rutina aportando hidratación y confort mientras descansas.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="nota">
+      <strong>Nota</strong>
+      El protector solar Madagascar Centella se utiliza únicamente durante el día. Por la noche no es necesario incluirlo en tu rutina.
+    </div>
+
+  </section>
+
+  <!-- CONSEJO -->
+  <div class="consejo">
+    <div class="consejo-icon">✨</div>
+    <p>Deja que cada producto se absorba antes de aplicar el siguiente paso. Esos segundos marcan la diferencia.</p>
+  </div>
+
+</main>
+
+<footer>
+  <p class="footer-brand">Flores Skin Lab</p>
+  <p class="footer-sub">Cosmética coreana · Madrid</p>
+</footer>
+
+</body>
+</html>
